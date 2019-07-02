@@ -186,6 +186,7 @@
   <script type="text/javascript" src="d3.js"></script>
   <script type="text/javascript" src="crossfilter.js"></script>
   <script type="text/javascript" src="dc.js"></script>
+  <script type="text/javascript" src="dc-resizing.js"></script>
 
   <script type="text/javascript">
 
@@ -232,8 +233,9 @@ var minDate = dateDimension.bottom(1)[0].date;
 var maxDate = dateDimension.top(1)[0].date;
 
 var lineChart = dc.lineChart("#chart")
-    .width(1360)
-    .height(200)
+    .width(window.innerWidth-20)
+    .height(window.innerHeight-20)
+    .elasticX(true)
     .margins({top:10,bottom:30,right:10,left:70})
     .dimension(dateDimension)
     .group(dateGroup,"total spend")
@@ -242,13 +244,17 @@ var lineChart = dc.lineChart("#chart")
     .renderHorizontalGridLines(true)
     .renderArea(true)
     .legend(dc.legend().x(1200).y(5).itemHeight(12).gap(5))
-    .x(d3.scaleTime().domain([minDate,maxDate]));
+    .x(d3.scaleTime().domain([minDate,maxDate]))
     // .centerBar(true)
     //.xUnits(dc.units.fp.precision(100));
     // .barPadding(0.2)
     // .outerPadding(0)
+    .render();
     lineChart.yAxis().ticks(5);
     lineChart.xAxis().ticks(4);
+    
+
+    apply_resizing(lineChart, 100);
 
 
 dc.renderAll();
