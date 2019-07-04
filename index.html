@@ -162,11 +162,11 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-7">
+            <div class="col-xl-12 col-lg-12">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Job Types</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -293,9 +293,96 @@ dc.renderAll();
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
+                   <div id="piechart"></div>
+
+                  <script type="text/javascript">
+                    //Allows user frindly output of Objects in Console
+                    function print_filter(filter) {
+                      var f = eval(filter);
+                      if (typeof(f.length) != "undefined") {}
+                      else {}
+                      if (typeof(f.top) != "undefined") { f = f.top(Infinity); }
+                      else {}
+                      if (typeof(f.dimension) != "undefined") { f = f.dimension(function(d) { return ""; }).top(Infinity); }
+                      else {}
+                      console.log(filter + "(" + f.length + ") = " + JSON.stringify(f).replace("[", "[\n\t").replace(/}\,/g, "},\n\t").replace("]", "\n]"));
+                    }
+
+                    var data = [
+                      { date: "2011-11-14T16:17:54Z", quantity: 2, total: 190, tip: 100, type: "tab" },
+                      { date: "2011-11-14T16:20:19Z", quantity: 2, total: 190, tip: 100, type: "tab" },
+                      { date: "2011-11-14T16:28:54Z", quantity: 1, total: 300, tip: 200, type: "visa" },
+                      { date: "2011-11-14T16:30:43Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T16:48:46Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T16:53:41Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T16:54:06Z", quantity: 1, total: 100, tip: 0, type: "cash" },
+                      { date: "2011-11-14T16:58:03Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T17:07:21Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T17:22:59Z", quantity: 2, total: 90, tip: 0, type: "tab" },
+                      { date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash" },
+                      { date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa" }
+                    ]
+
+                    data.forEach(function(d) {
+                      var tempDate = new Date(d.date); //changing date from string to date
+                      d.date = tempDate;
+                    })
+
+
+                    //CROSSFILTER
+                    var facts = crossfilter(data); //filter the data
+                    var all = facts.groupAll();
+                    var sumTotal = all.reduceSum(function(d) { return d.total; }).value(); //get percentages for pie chart
+                    var typeDimension = facts.dimension(function(d) { console.log(d.type); return d.type; });
+                    //access facts with CF dimension and then function which returns objects
+                    var typeGroup = typeDimension.group().reduceSum(function(d) { return d.total; }); //reduceSum allows access to all data points
+
+                    //plot totals instead of types with new dimension (x axis)
+                    var totalDimension = facts.dimension(function(d) { return d.total; });
+                    var totalGroup = totalDimension.group(function(d) { return Math.floor(d / 100) * 100; }); //function buckets the data (y axis)//Math.floor = round down, MAth.ceiling = round 
+
+                    var dateDimension = facts.dimension(function(d) { return d.date; }); //for line chart 
+                    var dateGroup = dateDimension.group().reduceSum(function(d) { return d.total; });
+                    var dateGroupTip = dateDimension.group().reduceSum(function(d) { return d.tip; });
+
+
+                    var minDate = dateDimension.bottom(1)[0].date; //set minimum and max
+                    var maxDate = dateDimension.top(1)[0].date;
+
+
+
+                    //Chart settings
+
+                    var pieChart = dc.pieChart("#piechart")
+                      .height(500)
+                      .width(500)
+                      .radius(300) //general size of pie chart
+                      .innerRadius(80) //doughnut piechart
+
+                      .title(function(d) { return d.key + ': $' + d.value; }) //hover add $
+                      .colors(d3.scaleOrdinal(d3.schemeAccent))
+                      .label(function(d) { return d.key + ':' + Math.round((d.value / sumTotal) * 100, 0) + '%'; }) //percentage hover label
+                      //.margins({top:10,bottom:30,right:10,left:50})    
+                      .dimension(typeDimension)
+                      .group(typeGroup)
+                      //.stack(dateGroupTip, "Tip")
+                      //.renderHorizontalGridLines(true)//grid lines
+                      //.renderArea(true)//fill area
+                      .legend(dc.legend().x(5).y(5).itemHeight(12).gap(5)) //DC specific class for legends
+                    //.x(d3.scaleTime().domain([minDate,maxDate]))
+                    //.yAxisLabel("Transaction spend");
+                    //.x(d3.scaleLinear().domain([0,400]))//scaling for non strings bar chart
+                    //.x(d3.scaleOrdinal().domain(['cash','tab','visa'])) //scaling for strings with ordinal
+                    //.xUnits(dc.units.ordinal) // tell dc its an ordinal scale
+                    //.centerBar(true)//centers bars for linear
+                    //.xUnits(dc.units.fp.precision(100))//fattens up bars for linear scale
+                    //.barPadding(0.5)//inner bar gaps
+                    //.outerPadding(10)//outer padding on bars
+                    //lineChart.yAxis().ticks(4);//number of integer marked along the left
+                    //lineChart.xAxis().ticks(4);
+
+                    dc.renderAll(); //render Chart
+                  </script>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
                       <i class="fas fa-circle text-primary"></i> Direct
