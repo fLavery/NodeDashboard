@@ -29,10 +29,10 @@
 
     <!-- Sidebar -->
 
-      <!-- Sidebar - Brand -->
+    <!-- Sidebar - Brand -->
 
-      <!-- Divider -->
-      
+    <!-- Divider -->
+
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -50,19 +50,19 @@
           </button>
 
           <!-- Topbar Search -->
-          
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            
+
             <!-- Nav Item - Alerts -->
-          
+
 
             <!-- Nav Item - Messages -->
-            
+
             <!-- Nav Item - User Information -->
-          
+
 
         </nav>
         <!-- End of Topbar -->
@@ -71,16 +71,13 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
+
 
           <!-- Content Row -->
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-lg-3 col-md-3 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -97,7 +94,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-lg-3 col-md-3 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -114,7 +111,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-lg-3 col-md-3 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -140,7 +137,7 @@
             </div>
 
             <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-lg-3 col-md-3 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -162,7 +159,7 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-12">
+            <div id="area-chart-width" class="col-xl-8 col-lg-8">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -183,120 +180,12 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div id="chart"></div>
-  <script type="text/javascript" src="d3.js"></script>
-  <script type="text/javascript" src="crossfilter.js"></script>
-  <script type="text/javascript" src="dc.js"></script>
-  <script type="text/javascript" src="dc-resizing.js"></script>
-
-  <script type="text/javascript">
-
-  function print_filter(filter) {
-    var f=eval(filter);
-    if (typeof(f.length) != "undefined") {}else{}
-    if (typeof(f.top) != "undefined") {f=f.top(Infinity);}else{}
-    if (typeof(f.dimension) != "undefined") {f=f.dimension(function(d) { return "";}).top(Infinity);}else{}
-    console.log(filter+"("+f.length+") = "+JSON.stringify(f).replace("[","[\n\t").replace(/}\,/g,"},\n\t").replace("]","\n]"));
-  }
-
-  var data = [
-  {date: "2011-11-14T16:17:54Z", quantity: 2, total: 190, tip: 100, type: "tab"},
-  {date: "2011-11-14T16:20:19Z", quantity: 2, total: 190, tip: 100, type: "tab"},
-  {date: "2011-11-14T16:28:54Z", quantity: 1, total: 300, tip: 200, type: "visa"},
-  {date: "2011-11-14T16:30:43Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T16:48:46Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T16:53:41Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T16:54:06Z", quantity: 1, total: 100, tip: 0, type: "cash"},
-  {date: "2011-11-14T16:58:03Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T17:07:21Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T17:22:59Z", quantity: 2, total: 90, tip: 0, type: "tab"},
-  {date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash"},
-  {date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa"}
-];
-
-data.forEach(function(d){
-  var tempDate = new Date(d.date);
-  d.date = tempDate;
-})
-
-var facts = crossfilter(data);
-var typeDimension = facts.dimension(function(d){ return d.type; });
-var typeGroup = typeDimension.group().reduceSum(function(d){ return d.total; });
-
-var totalDimension = facts.dimension(function(d){ return d.total; });
-var totalGroup = totalDimension.group(function(d){ return Math.floor(d/100)*100; });
-
-var dateDimension = facts.dimension(function(d){ return d.date; });
-var dateGroup = dateDimension.group().reduceSum(function(d){ return d.total; });
-var dateGroupTip = dateDimension.group().reduceSum(function(d){ return d.tip; });
-
-var minDate = dateDimension.bottom(1)[0].date;
-var maxDate = dateDimension.top(1)[0].date;
-
-var lineChart = dc.lineChart("#chart")
-    .width(window.innerWidth-20)
-    .height(window.innerHeight-20)
-    .elasticX(true)
-    .margins({top:10,bottom:30,right:10,left:70})
-    .dimension(dateDimension)
-    .group(dateGroup,"total spend")
-    .stack(dateGroupTip,"tip")
-    .yAxisLabel("Transaction spend")
-    .renderHorizontalGridLines(true)
-    .renderArea(true)
-    .legend(dc.legend().x(1200).y(5).itemHeight(12).gap(5))
-    .x(d3.scaleTime().domain([minDate,maxDate]))
-    // .centerBar(true)
-    //.xUnits(dc.units.fp.precision(100));
-    // .barPadding(0.2)
-    // .outerPadding(0)
-    .render();
-    lineChart.yAxis().ticks(5);
-    lineChart.xAxis().ticks(4);
-    
-
-    apply_resizing(lineChart, 100);
-
-
-dc.renderAll();
-
-  // console.log(data);
-   console.log(dateDimension.top(1)[0].date);
-  //print_filter('dateDimension.bottom(3)');
-
-
-
-  </script>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                   <div id="piechart"></div>
+                  <script type="text/javascript" src="d3.js"></script>
+                  <script type="text/javascript" src="crossfilter.js"></script>
+                  <script type="text/javascript" src="dc.js"></script>
+                  <script type="text/javascript" src="dc-resizing.js"></script>
 
                   <script type="text/javascript">
-                    //Allows user frindly output of Objects in Console
                     function print_filter(filter) {
                       var f = eval(filter);
                       if (typeof(f.length) != "undefined") {}
@@ -321,16 +210,106 @@ dc.renderAll();
                       { date: "2011-11-14T17:22:59Z", quantity: 2, total: 90, tip: 0, type: "tab" },
                       { date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash" },
                       { date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa" }
-                    ]
+                    ];
 
                     data.forEach(function(d) {
-                      var tempDate = new Date(d.date); //changing date from string to date
+                      var tempDate = new Date(d.date);
                       d.date = tempDate;
                     })
 
+                    var facts = crossfilter(data);
+                    var typeDimension = facts.dimension(function(d) { return d.type; });
+                    var typeGroup = typeDimension.group().reduceSum(function(d) { return d.total; });
+
+                    var totalDimension = facts.dimension(function(d) { return d.total; });
+                    var totalGroup = totalDimension.group(function(d) { return Math.floor(d / 100) * 100; });
+
+                    var dateDimension = facts.dimension(function(d) { return d.date; });
+                    var dateGroup = dateDimension.group().reduceSum(function(d) { return d.total; });
+                    var dateGroupTip = dateDimension.group().reduceSum(function(d) { return d.tip; });
+
+                    var minDate = dateDimension.bottom(1)[0].date;
+                    var maxDate = dateDimension.top(1)[0].date;
+
+                    var lineChart = dc.lineChart("#chart")
+
+
+                      .elasticX(true)
+                      .margins({ top: 10, bottom: 30, right: 10, left: 70 })
+                      .dimension(dateDimension)
+                      .group(dateGroup, "total spend")
+                      .stack(dateGroupTip, "tip")
+                      .yAxisLabel("Transaction spend")
+                      .renderHorizontalGridLines(true)
+                      .renderArea(true)
+                      .legend(dc.legend().x(1200).y(5).itemHeight(12).gap(5))
+                      .x(d3.scaleTime().domain([minDate, maxDate]))
+                      // .centerBar(true)
+                      //.xUnits(dc.units.fp.precision(100));
+                      // .barPadding(0.2)
+                      // .outerPadding(0)
+                      .render();
+                    lineChart.yAxis().ticks(5);
+                    lineChart.xAxis().ticks(4);
+
+
+                    apply_resizing(lineChart, 500, 330);
+
+
+                    dc.renderAll();
+
+                    // console.log(data);
+                    console.log(dateDimension.top(1)[0].date);
+                    //print_filter('dateDimension.bottom(3)');
+                  </script>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Pie Chart -->
+          <div class="col-xl-4 col-lg-4">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div id="piechart"></div>
+
+                  <script type="text/javascript">
+                    //Allows user frindly output of Objects in Console
+                    function print_filter(filter) {
+                      var f = eval(filter);
+                      if (typeof(f.length) != "undefined") {}
+                      else {}
+                      if (typeof(f.top) != "undefined") { f = f.top(Infinity); }
+                      else {}
+                      if (typeof(f.dimension) != "undefined") { f = f.dimension(function(d) { return ""; }).top(Infinity); }
+                      else {}
+                      console.log(filter + "(" + f.length + ") = " + JSON.stringify(f).replace("[", "[\n\t").replace(/}\,/g, "},\n\t").replace("]", "\n]"));
+                    }
+
+                    
+
+
 
                     //CROSSFILTER
-                    var facts = crossfilter(data); //filter the data
+                    //filter the data
                     var all = facts.groupAll();
                     var sumTotal = all.reduceSum(function(d) { return d.total; }).value(); //get percentages for pie chart
                     var typeDimension = facts.dimension(function(d) { console.log(d.type); return d.type; });
@@ -354,8 +333,8 @@ dc.renderAll();
                     //Chart settings
 
                     var pieChart = dc.pieChart("#piechart")
-                      .height(500)
-                      .width(500)
+                      .height(277)
+                      .width(300)
                       .radius(300) //general size of pie chart
                       .innerRadius(80) //doughnut piechart
 
@@ -383,128 +362,117 @@ dc.renderAll();
 
                     dc.renderAll(); //render Chart
                   </script>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
+
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Content Row -->
-          <div class="row">
+          <div class="col-lg-12 mb-4">
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
+            <!-- Illustrations -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
               </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
+              <div class="card-body">
+                <div id="table">
+                    
                 </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
-
             </div>
 
-            <div class="col-lg-6 mb-4">
+            <!-- Content Row -->
+            <div class="row">
 
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+              <!-- Content Column -->
+              <div class="col-lg-6 mb-4">
+
+                <!-- Project Card Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                   </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without
-                    attribution!
-                  </p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                  <div class="card-body">
+                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                    <div class="progress mb-4">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                    <div class="progress mb-4">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                    <div class="progress mb-4">
+                      <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                    <div class="progress mb-4">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                    <div class="progress">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- Color System -->
+                <div class="row">
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-primary text-white shadow">
+                      <div class="card-body">
+                        Primary
+                        <div class="text-white-50 small">#4e73df</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-success text-white shadow">
+                      <div class="card-body">
+                        Success
+                        <div class="text-white-50 small">#1cc88a</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-info text-white shadow">
+                      <div class="card-body">
+                        Info
+                        <div class="text-white-50 small">#36b9cc</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-warning text-white shadow">
+                      <div class="card-body">
+                        Warning
+                        <div class="text-white-50 small">#f6c23e</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-danger text-white shadow">
+                      <div class="card-body">
+                        Danger
+                        <div class="text-white-50 small">#e74a3b</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="card bg-secondary text-white shadow">
+                      <div class="card-body">
+                        Secondary
+                        <div class="text-white-50 small">#858796</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
+
 
               <!-- Approach -->
               <div class="card shadow mb-4">
@@ -527,7 +495,7 @@ dc.renderAll();
       <!-- End of Main Content -->
 
       <!-- Footer -->
-     
+
       <!-- End of Footer -->
 
     </div>
