@@ -43,7 +43,9 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+          <div style="margin-top: 9px;">
+            <h2>Heavy Metal Nodes</h2>
+          </div>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -61,9 +63,55 @@
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                  <h3>
-                    Jobs Available
-                  </h3>
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Available Node Jobs</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="card shadow mb-4">
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample" class="d-block card-header py-3 collapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                          <h6 class="m-0 font-weight-bold text-primary">Request Price of ETH</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse show" id="collapseCardExample">
+                          <div class="card-body">
+                            <strong>Adamantium Node Oracle Address:</strong><code>  0xF5a3d443FccD7eE567000E43B23b0e98d96445CE</code><strong> </br> Job ID:</strong><code> 35167569e99342f28bb651f71ce9ab32</code>
+                          </div>
+                        </div>
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample2" class="d-block card-header py-3 collapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                          <h6 class="m-0 font-weight-bold text-primary">Request Price of BTC</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse show" id="collapseCardExample2">
+                          <div class="card-body">
+                            <strong>Adamantium Node Oracle Address:</strong><code>  0xF5a3d443FccD7eE567000E43B23b0e98d96445CE</code><strong> </br> Job ID:</strong><code> 95167569e99342f28bb651f71ce9ab32</code>
+                          </div>
+                        </div>
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample3" class="d-block card-header py-3 collapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                          <h6 class="m-0 font-weight-bold text-primary">Request Price of LINK</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse show" id="collapseCardExample3">
+                          <div class="card-body">
+                            <strong>Adamantium Node Oracle Address:</strong><code>  0xF5a3d443FccD7eE567000E43B23b0e98d96445CE</code><strong> </br> Job ID:</strong><code> 90167569e99342f28bb651f71ce9ab32</code>
+                          </div>
+                        </div>
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample4" class="d-block card-header py-3 collapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                          <h6 class="m-0 font-weight-bold text-primary">Request Price of TRTL</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse show" id="collapseCardExample4">
+                          <div class="card-body">
+                            <strong>Adamantium Node Oracle Address:</strong><code>  0xF5a3d443FccD7eE567000E43B23b0e98d9HSDF3</code><strong> </br> Job ID:</strong><code>25167569e99342f28bb651f71ce9ab32</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,11 +139,11 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">AWS Hosted</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Adamantium Node</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <img src="img/nodegrey.png" style="height:42px;width:42px" id="nodeIcon1"></img>
                     </div>
                   </div>
                 </div>
@@ -108,11 +156,11 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Microsoft Axure Hosted</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Mithril Node</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <img src="img/nodegrey.png" style="height:42px;width:42px" id="nodeIcon2"></img>
                     </div>
                   </div>
                 </div>
@@ -125,20 +173,18 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">GCP Hosted</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Orichalcum Node</div>
                         </div>
                         <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
+
                         </div>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <img src="img/nodegrey.png" style="height:42px;width:42px" id="nodeIcon3"></img>
                     </div>
                   </div>
                 </div>
@@ -151,11 +197,11 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Oracle Hosted</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Imperial Gold Node</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      <img src="img/nodegrey.png" style="height:42px;width:42px" id="nodeIcon4"></img>
                     </div>
                   </div>
                 </div>
@@ -168,12 +214,12 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div id="node1" class="col-xl-8 col-lg-8" >
+            <div id="node1" class="col-xl-8 col-lg-8">
               <div id="area-chart-width" class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Node 1</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Adamantium Node</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -208,18 +254,18 @@
                       }
 
                       var data = [
-                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 30, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 67, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 88, tip: 200, type: "visa" },
-                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 120, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 54, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 134, tip: 50, type: "tab" },
-                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 543, tip: 34, type: "cash" },
-                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 345, tip: 66, type: "tab" },
-                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 355, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 400, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash" },
-                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa" }
+                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 20, tip: 10, type: "tab" },
+                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 12, tip: 100, type: "tab" },
+                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 843, tip: 300, type: "visa" },
+                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 13, tip: 30, type: "tab" },
+                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 52, tip: 40, type: "tab" },
+                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 97, tip: 50, type: "tab" },
+                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 53, tip: 74, type: "cash" },
+                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 35, tip: 26, type: "tab" },
+                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 345, tip: 80, type: "tab" },
+                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 10, tip: 79, type: "tab" },
+                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 340, tip: 2, type: "cash" },
+                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 80, tip: 100, type: "visa" }
                       ];
 
                       data.forEach(function(d) {
@@ -244,6 +290,8 @@
                       var lineChart = dc.lineChart("#chart")
 
 
+                        .height(400)
+                        .width(900)
                         .elasticX(true)
                         .margins({ top: 10, bottom: 30, right: 10, left: 70 })
                         .dimension(dateDimension)
@@ -263,7 +311,7 @@
                       lineChart.xAxis().ticks(4);
 
 
-                      apply_resizing(lineChart, 500, 330);
+                      // apply_resizing(lineChart, 500, 330);
 
 
                       dc.renderAll();
@@ -282,7 +330,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Node 2</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Mithril Node</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -317,18 +365,18 @@
                       }
 
                       var data = [
-                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 30, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 67, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 88, tip: 200, type: "visa" },
-                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 120, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 54, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 134, tip: 50, type: "tab" },
-                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 543, tip: 34, type: "cash" },
-                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 345, tip: 66, type: "tab" },
-                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 355, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 400, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash" },
-                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa" }
+                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 60, tip: 100, type: "tab" },
+                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 77, tip: 100, type: "tab" },
+                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 898, tip: 200, type: "visa" },
+                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 150, tip: 0, type: "tab" },
+                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 52, tip: 0, type: "tab" },
+                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 14, tip: 50, type: "tab" },
+                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 593, tip: 34, type: "cash" },
+                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 348, tip: 66, type: "tab" },
+                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 354, tip: 0, type: "tab" },
+                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 445, tip: 0, type: "tab" },
+                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 266, tip: 0, type: "cash" },
+                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 208, tip: 100, type: "visa" }
                       ];
 
                       data.forEach(function(d) {
@@ -352,7 +400,8 @@
 
                       var lineChart = dc.lineChart("#chart2")
 
-
+                        .height(400)
+                        .width(900)
                         .elasticX(true)
                         .margins({ top: 10, bottom: 30, right: 10, left: 70 })
                         .dimension(dateDimension)
@@ -372,7 +421,7 @@
                       lineChart.xAxis().ticks(4);
 
 
-                      apply_resizing(lineChart, 500, 330);
+                      // apply_resizing(lineChart, 500, 330);
 
 
                       dc.renderAll();
@@ -391,7 +440,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Node 3</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Orichalcum Node</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -426,18 +475,18 @@
                       }
 
                       var data = [
-                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 30, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 67, tip: 100, type: "tab" },
-                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 88, tip: 200, type: "visa" },
-                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 120, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 54, tip: 0, type: "tab" },
-                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 134, tip: 50, type: "tab" },
-                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 543, tip: 34, type: "cash" },
-                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 345, tip: 66, type: "tab" },
-                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 355, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 400, tip: 0, type: "tab" },
-                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 200, tip: 0, type: "cash" },
-                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa" }
+                        { date: "2011-11-14T16:17:54Z", quantity: 2, total: 340, tip: 100, type: "tab" },
+                        { date: "2011-11-14T16:20:19Z", quantity: 2, total: 632, tip: 100, type: "tab" },
+                        { date: "2011-11-14T16:28:54Z", quantity: 1, total: 883, tip: 200, type: "visa" },
+                        { date: "2011-11-14T16:30:43Z", quantity: 2, total: 143, tip: 0, type: "tab" },
+                        { date: "2011-11-14T16:48:46Z", quantity: 2, total: 523, tip: 0, type: "tab" },
+                        { date: "2011-11-14T16:53:41Z", quantity: 2, total: 585, tip: 50, type: "tab" },
+                        { date: "2011-11-14T16:54:06Z", quantity: 1, total: 523, tip: 34, type: "cash" },
+                        { date: "2011-11-14T16:58:03Z", quantity: 2, total: 33, tip: 66, type: "tab" },
+                        { date: "2011-11-14T17:07:21Z", quantity: 2, total: 35, tip: 0, type: "tab" },
+                        { date: "2011-11-14T17:22:59Z", quantity: 2, total: 700, tip: 0, type: "tab" },
+                        { date: "2011-11-14T17:25:45Z", quantity: 2, total: 300, tip: 0, type: "cash" },
+                        { date: "2011-11-14T17:29:52Z", quantity: 1, total: 700, tip: 100, type: "visa" }
                       ];
 
                       data.forEach(function(d) {
@@ -461,7 +510,8 @@
 
                       var lineChart = dc.lineChart("#chart3")
 
-
+                        .height(400)
+                        .width(900)
                         .elasticX(true)
                         .margins({ top: 10, bottom: 30, right: 10, left: 70 })
                         .dimension(dateDimension)
@@ -481,7 +531,7 @@
                       lineChart.xAxis().ticks(4);
 
 
-                      apply_resizing(lineChart, 500, 330);
+                      // apply_resizing(lineChart, 500, 330);
 
 
                       dc.renderAll();
@@ -500,7 +550,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Node 4</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Imperial Gold Node</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -570,7 +620,8 @@
 
                       var lineChart = dc.lineChart("#chart4")
 
-
+                        .height(400)
+                        .width(900)
                         .elasticX(true)
                         .margins({ top: 10, bottom: 30, right: 10, left: 70 })
                         .dimension(dateDimension)
@@ -590,7 +641,7 @@
                       lineChart.xAxis().ticks(4);
 
 
-                      apply_resizing(lineChart, 500, 330);
+                      // apply_resizing(lineChart, 620, 350);
 
 
                       dc.renderAll();
@@ -670,10 +721,10 @@
                     //Chart settings
 
                     var pieChart = dc.pieChart("#piechart")
-                      .height(277)
-                      .width(300)
+                      .height(400)
+                      .width(400)
                       .radius(300) //general size of pie chart
-                      .innerRadius(80) //doughnut piechart
+                      .innerRadius(50) //doughnut piechart
 
                       .title(function(d) { return d.key + ': $' + d.value; }) //hover add $
                       .colors(d3.scaleOrdinal(d3.schemeAccent))
@@ -684,7 +735,7 @@
                       //.stack(dateGroupTip, "Tip")
                       //.renderHorizontalGridLines(true)//grid lines
                       //.renderArea(true)//fill area
-                      .legend(dc.legend().x(5).y(5).itemHeight(12).gap(5)) //DC specific class for legends
+                      .legend(dc.legend().x(0).y(0).itemHeight(12).gap(5)) //DC specific class for legends
                     //.x(d3.scaleTime().domain([minDate,maxDate]))
                     //.yAxisLabel("Transaction spend");
                     //.x(d3.scaleLinear().domain([0,400]))//scaling for non strings bar chart
@@ -708,148 +759,81 @@
           <div class="col-lg-12 mb-4">
 
             <!-- Illustrations -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+            <!--  <div class="card shadow mb-4">-->
+            <!--    <div class="card-header py-3">-->
+            <!--      <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>-->
+            <!--    </div>-->
+            <!--    <div class="card-body">-->
+            <!--      <table id="table" class="class=" table table-bordered dataTable ""></table>-->
+            <!--      </table>-->
+            <!--      <script>-->
+            <!--        var dateDimension = facts.dimension(function(d) { return d.date; })-->
+
+            <!--        var dataTable = dc.dataTable("#table")-->
+            <!--          .width(100)-->
+            <!--          .height(300)-->
+            <!--          .dimension(dateDimension)-->
+            <!--          .group(function(d) { console.log(d); return d.type })-->
+            <!--          .columns(['date', 'quantity', 'total', 'tip', 'type']);-->
+
+
+            <!--        dc.renderAll();-->
+            <!--      </script>-->
+            <!--    </div>-->
+
+            <!--  </div>-->
+            <!--</div>-->
+
+            <!-- Content Row -->
+            <div class="row">
+
+              <!-- Content Column -->
+              <div class="col-lg-6 mb-4">
+
+                <!-- Project Card Example -->
+
+
+                <!-- Color System -->
+
               </div>
-              <div class="card-body">
-                <table id="table" class="class=" table table-bordered dataTable ""></table>
-                </table>
-                <script>
-                  var dateDimension = facts.dimension(function(d) { return d.date; })
-
-                  var dataTable = dc.dataTable("#table")
-                    .width(100)
-                    .height(300)
-                    .dimension(dateDimension)
-                    .group(function(d) { console.log(d); return d.type })
-                    .columns(['date', 'quantity', 'total', 'tip', 'type']);
 
 
-                  dc.renderAll();
-                </script>
-              </div>
 
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
+              <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Heavy Metal Nodes</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
+                  <p>We have decided to use a combination of our own infrastructure and cloud services (AWS, DigitalOcean). Even-though we could have run the entire Chainlink infrastructure on AWS alone in our opinion it makes sense to use atleast one of
+                  the other cloud providers (Google Cloud Platform, Microsoft Azure, Oracle Cloud, Amazon Web Services) or your own infrastructure in case AWS will have multi region or global failure. Each set of nodes is geo-redundant by being hosted in different
+                    regions by different providers. Our own servers are hosted by a hosting provider certified in accordance with DIN ISO/IEC 27001. It also offers state of the art DDoS protection and multiple 100 GBit/s peering points on the backbone
+                    with guaranteed bandwidth of 1GBit/s.</p>
+                  <p>
+                    Oracles/jobs addresses can be found by hitting the Node Jobs Button.
+                    
+                  </p>
+                  
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" style="margin-right: 9px;">Node Jobs</button>
+                    
                 </div>
               </div>
 
             </div>
-
-
-
-            <!-- Approach -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-              </div>
-              <div class="card-body">
-                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-              </div>
-            </div>
-
           </div>
+
         </div>
+        <!-- /.container-fluid -->
 
       </div>
-      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+
+      <!-- End of Footer -->
 
     </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-
-    <!-- End of Footer -->
-
-  </div>
-  <!-- End of Content Wrapper -->
+    <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->

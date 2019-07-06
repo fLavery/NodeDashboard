@@ -46,6 +46,47 @@
     e.preventDefault();
   });
   
+  //change image source on hover
+    $('#btn1').hover(function(){
+        $('#nodeIcon1').attr('src','img/CLLOG.png');
+    
+    });
+    
+    $('#btn1').mouseleave(function(){
+        $('#nodeIcon1').attr('src','img/nodegrey.png');
+    
+    });
+    
+    $('#btn2').hover(function(){
+        $('#nodeIcon2').attr('src','img/nodegreen.png');
+    
+    });
+    
+    $('#btn2').mouseleave(function(){
+        $('#nodeIcon2').attr('src','img/nodegrey.png');
+    
+    });
+    
+    $('#btn3').hover(function(){
+        $('#nodeIcon3').attr('src','img/nodeteal.png');
+    
+    });
+    
+    $('#btn3').mouseleave(function(){
+        $('#nodeIcon3').attr('src','img/nodegrey.png');
+    
+    });
+    
+    $('#btn4').hover(function(){
+        $('#nodeIcon4').attr('src','img/nodegold.png');
+    
+    });
+    
+    $('#btn4').mouseleave(function(){
+        $('#nodeIcon4').attr('src','img/nodegrey.png');
+    
+    });
+  
   //Chart Selection script. source: https://stackoverflow.com/questions/37995581/how-to-replace-div-content-for-button-click-on-same-page-in-bootstrap
   $(document).ready(function() {
     $("#btn1").click(function() {
@@ -76,6 +117,7 @@
         $("#node4").css("display", "block");
     });
 });
+
 
 
 })(jQuery); // End of use strict

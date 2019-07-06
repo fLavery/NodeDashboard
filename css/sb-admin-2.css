@@ -12063,15 +12063,40 @@ body.sidebar-toggled footer.sticky-footer {
 
 #btn1  {
   cursor:pointer;
+  /*background-color: #fff;*/
+  transition: 0.3s;
 }
 
 #btn2  {
   cursor:pointer;
+  transition: 0.3s;
 }
 
 #btn3  {
   cursor:pointer;
+  transition: 0.3s;
 }
 #btn4  {
   cursor:pointer;
+  transition: 0.3s;
 }
+
+#btn1:hover  {
+  background-color: #d7dcff;
+}
+
+#btn2:hover  {
+  background-color: #d7dcff;
+}
+
+#btn3:hover  {
+  background-color: #d7dcff;
+}
+
+#btn4:hover  {
+  background-color: #d7dcff;
+}
+
+
+
+
