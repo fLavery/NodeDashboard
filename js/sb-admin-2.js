@@ -45,5 +45,37 @@
     }, 1000, 'easeInOutExpo');
     e.preventDefault();
   });
+  
+  //Chart Selection script. source: https://stackoverflow.com/questions/37995581/how-to-replace-div-content-for-button-click-on-same-page-in-bootstrap
+  $(document).ready(function() {
+    $("#btn1").click(function() {
+        $("#node1").css("display", "block");
+        $("#node2").css("display", "none");
+        $("#node3").css("display", "none");
+        $("#node4").css("display", "none");
+    });
+
+    $("#btn2").click(function() {
+        $("#node1").css("display", "none");
+        $("#node2").css("display", "block");
+        $("#node3").css("display", "none");
+        $("#node4").css("display", "none");
+    });
+
+    $("#btn3").click(function() {
+        $("#node1").css("display", "none");
+        $("#node2").css("display", "none");
+        $("#node3").css("display", "block");
+        $("#node4").css("display", "none");
+    });
+
+    $("#btn4").click(function() {
+        $("#node1").css("display", "none");
+        $("#node2").css("display", "none");
+        $("#node3").css("display", "none");
+        $("#node4").css("display", "block");
+    });
+});
+
 
 })(jQuery); // End of use strict

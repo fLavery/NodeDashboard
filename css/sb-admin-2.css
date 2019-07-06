@@ -12058,3 +12058,20 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+/*JQuery Cursor styling*/
+
+#btn1  {
+  cursor:pointer;
+}
+
+#btn2  {
+  cursor:pointer;
+}
+
+#btn3  {
+  cursor:pointer;
+}
+#btn4  {
+  cursor:pointer;
+}
