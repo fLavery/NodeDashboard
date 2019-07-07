@@ -47,12 +47,12 @@ Information Section
 ## Technologies Used
 
 - This project uses HTML and CSS programming languages.
-- 
+ 
 - [JQuery](https://jquery.com)
     - The website uses **JQuery** to make the Jobs Modal and selecting the node from the node menu.
 
-- [AWSCloud9](https://aws.amazon.com/cloud9/) 
- - This developer used **AWS Cloud9** for their IDE while building the website.
+- [AWSCloud9](https://aws.amazon.com/cloud9/)
+    - This developer used**AWS Cloud9** for their IDE while building the website.
 
 - [BootstrapCDN](https://www.bootstrapcdn.com/)
     - The website uses **Bootstrap4** to simplify the structure of the website and make the website responsive easily.
