@@ -1,65 +1,108 @@
-# [Start Bootstrap - SB Admin 2](https://startbootstrap.com/template-overviews/sb-admin-2/)
+## Chainlink Node Dashboard Website
+Stream Two Project: Interactive Frontend Development - Code Institute
 
-[SB Admin 2](https://startbootstrap.com/template-overviews/sb-admin-2/) is an open source admin dashboard theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+This website was built for a person who is looking for a chainlink node to provide decentralized api data to smart contracts.
 
-For the legacy Bootstrap 3 version of this theme, you can view the [last stable release](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/releases/tag/v3.3.7%2B1) of SB Admin 2 for Bootstrap 3.
+Deterministic smart contracts are at the forefront of the next Industrial revolution. The cost saving potential of tamperless self executing contracts will render them extremely disruptive to countless industries including banking, insurance and derivatives.
+However a key weakness of smartcontracts is "what if you get faulty data into your smartcontract". Until very recently smartcontracts could only get data via a centralized Oracle provider such as Oracalize. With centralised acquisition of data a contract is vulnerable to downtime, as well as faulty or tampered data i.e. the "[Oracle problem](http://www.slaw.ca/2018/12/12/smart-contracts-and-the-oracle-problem)". This is a security risk that is too high to implement high value contracts.
 
-## Preview
+However with the launch of the Chainlink network in June 2019 we are at a point where we are closer than ever to solving "The Oracle Problem". Chainlink will give smartcontracts creators access to secure, highly available and tamper proof api data via decentralized Oracles. One can pick and choose the most reliable Nodes to meet the security requirements that a specific contract requires. 
 
-[![SB Admin 2 Preview](https://startbootstrap.com/assets/img/screenshots/themes/sb-admin-2.png)](https://blackrockdigital.github.io/startbootstrap-sb-admin-2/)
+This website will allow smart contract creators to view various live logged performance metrics for a series of nodes which will be charted via D3.js & DC.js. The charts will be interactive and the user will be able to acquire the necessary information to make api data requests via this node.
+ 
+## UX
+These are the user stories I came up with for the website:
 
-**[Launch Live Preview](https://blackrockdigital.github.io/startbootstrap-sb-admin-2/)**
+- As a user I want to be able to see how reliable and secure the node is, to ensure the successful execution of my smart contract.
+ 
+- As a user I want to be able to see performance in detail in periods of high traffic volume.
 
-## Status
+- As a user I want to be able to find the Oracle address and the job ID so I can make requests to the node.
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-sb-admin-2/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin-2.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin-2)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin-2.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin-2)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin-2/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin-2)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin-2/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin-2?type=dev)
+The primary goal of this site is to get smartcontract creators to request data from my node so that I will get payment in return for providing this data. I wanted potential customers to feel confidant they are choosing a node or nodes that will deliver their data succesfully and providing interactive live log data showing high uptime and request numbers will persuade them. Regarding aesthethics and branding, I named the nodes based on legendarily strong metals to inspire thoughts of unearthly robustness in the customer.  
 
-## Download and Installation
+## Features
+A Single page website with 3 main sections.
+- Responsive layout(ish)
 
-To begin using this template, choose one of the following options to get started:
+Interactive Dashboard
+- Charts are populated with data from each node on clicking the respective node icon
+- Crossfilter allows users to select data ranges and dimensions which auto updates accross charts
+- Animated menu
 
--   [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/sb-admin-2/)
--   Install via npm: `npm i startbootstrap-sb-admin-2`
--   Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git`
--   [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2)
+Modal Button
+- Incorporated into the top nav
+- Shows available jobs in a modal on click
+- Features collapsable menus so the users can easily copy and paste from the section they intended.
 
-## Usage
+Information Section
+- Detailing relavant node information such as Cloud platform providers
+ 
+### Features Left to Implement
+- Charts to be linked to logs data from cloud platform instead of dummy data
+- Contact Section
+- Live LINK/USD charts
+- More responsive DC.js charts
 
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
+## Technologies Used
 
-### Gulp Tasks
+- This project uses HTML and CSS programming languages.
+- 
+- [JQuery](https://jquery.com)
+    - The website uses **JQuery** to make the Jobs Modal and selecting the node from the node menu.
 
--   `gulp` the default task that builds everything
--   `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
--   `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
--   `gulp js` minifies the themes JS file
--   `gulp vendor` copies dependencies from node_modules to the vendor directory
+- [AWSCloud9](https://aws.amazon.com/cloud9/) 
+ - This developer used **AWS Cloud9** for their IDE while building the website.
 
-You must have npm installed globally in order to use this build environment. This theme was built using node v11.6.0 and the Gulp CLI v2.0.1. If Gulp is not running properly after running `npm install`, you may need to update node and/or the Gulp CLI locally.
+- [BootstrapCDN](https://www.bootstrapcdn.com/)
+    - The website uses **Bootstrap4** to simplify the structure of the website and make the website responsive easily.
 
-## Bugs and Issues
+- [Google Fonts](https://fonts.google.com/)
+    - The website uses **Google fonts** to style the website fonts.
+  
+- [Start Bootstrap SB Admin 2 Theme](https://startbootstrap.com/template-overviews/sb-admin-2/)
+    - This website uses **SB Admin 2 theme** for it's base structure as well as it's dependencies which are listed [here](https://startbootstrap.com/template-overviews/sb-admin-2/)
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/sb-admin-2/).
+- [Chainlink](https://chain.link/)
+    - The website shows metrics for a node running on the **Chainlink network**.
+    
+- [Smartcontract.com](https://www.smartcontract.com/)
+    - For further information on smartcontracts and how they work, check out **SmartContract.com**. 
 
-## About
+- [CargoX](https://cargox.info/)
+    - Design inspiration for dashboard from **CargoX**; a website for tracking key metrics on the Cargo X Blockchain network.
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+- [D3.js](https://d3js.org/)
+    - This website uses the Javascript library **D3.js** for data SVG generation.
 
--   <https://startbootstrap.com>
--   <https://twitter.com/SBootstrap>
+- [DC.js](https://dc-js.github.io/dc.js/)
+    - This website uses the Javascript charting library **DC.js** for styling of DC SVGs.
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**.
+- [Crossfilter](https://square.github.io/crossfilter/)
+    - This website uses the Javascript library **Crossfilter** to enable interactivity between charts.
+    
+-[Rory McCrossan](https://stackoverflow.com/questions/37995581/how-to-replace-div-content-for-button-click-on-same-page-in-bootstrap)
+  - Code for replacing the charts depending on which one you click was adapted from the example given by **Rory McCrossan** in the stack overflow thread.
 
--   <http://davidmiller.io>
--   <https://twitter.com/davidmillerskt>
--   <https://github.com/davidtmiller>
+## Testing
+- I clicked all links and ensured they went to the right location, I tested the browser on Firefox & Brave(Chromium fork). 
+- I tested the responsive layout using Braves inbuilt dev tools
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+Issues yet to be resolved
 
-## Copyright and License
+-DC.js charts are not resizing correctly for other size screens and zooms
 
-Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-resume/blob/gh-pages/LICENSE) license.
+-Only the Imperial Gold node features crossfilter interactive features
+
+## Deployment
+
+This website was deployed using Github pages and you can check it out [here](https://fionnlavery.github.io/NodeDashboard/)
+Note: Only the imperial Gold nodes charts behave as intended.
+
+## Credits
+
+### Media
+- The Chainlink logo was taken from the chain.link website
+### Acknowledgements
+
+- I received inspiration for this project from Sergey Nazarov and the Chainlink team
